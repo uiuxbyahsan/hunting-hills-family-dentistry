@@ -1,0 +1,365 @@
+/* ==========================================================================
+   HUNTING HILLS FAMILY DENTISTRY — WORLD-CLASS HEALTHCARE DESIGN SYSTEM
+   Editorial, Clean, Minimalist, Architectural, Human & Conversion-Focused
+   ========================================================================== */
+
+:root {
+  /* Brand Palette (Authentic Hunting Hills Identity) */
+  --color-primary: #173B4D;         /* Deep Navy */
+  --color-primary-dark: #102D3B;    /* Dark Midnight Navy */
+  --color-primary-light: #23546D;   /* Slate Navy */
+  --color-teal: #55B7C9;            /* Signature Brand Teal */
+  --color-teal-dark: #3294A6;       /* Deep Accent Teal */
+  --color-teal-soft: #EAF7F8;       /* Soft Pale Teal Wash */
+  --color-teal-tint: #F3FAFB;       /* Ultra-subtle Teal Tint */
+  --color-orange: #F39A52;          /* Warm CTA Accent Orange */
+  --color-orange-hover: #E48334;    /* Pressed/Hover Orange */
+  --color-orange-subtle: #FFF8F2;   /* Warm Orange Wash */
+
+  /* Background & Surface Colors */
+  --color-bg-warm: #FAF9F6;         /* Warm Off-White / Cream */
+  --color-bg-soft: #F1F7F8;         /* Soft Powder Blue / Mist */
+  --color-surface: #FFFFFF;         /* Pure Surface White */
+  --color-surface-subtle: #F8FBFC;  /* Subtle Off-White Card */
+  
+  /* Borders (Crisp, Architectural, Razor-Clean) */
+  --color-border: #DCE5E7;          /* Primary Structural Border */
+  --color-border-subtle: #E8EFF1;   /* Subtle Hairline Border */
+  --color-border-hover: #55B7C9;    /* Interactive Border */
+
+  /* Text & Readability */
+  --color-text-dark: #183039;       /* Primary Text */
+  --color-text-muted: #66777D;      /* Secondary Reading Text */
+  --color-text-light: #8E9EA5;      /* Sub-captions & Micro-text */
+  --color-text-inverse: #FFFFFF;    /* White on Dark */
+
+  /* Status Colors */
+  --color-success: #1B8756;
+  --color-success-bg: #EAF7F0;
+  --color-error: #D63939;
+  --color-error-bg: #FDF2F2;
+
+  /* Typography */
+  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* 8px Spacing Grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Corner Radii (Refined, architectural 8-16px, never bubbly) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Minimal Crisp Shadows (Clean architectural depth, NO fuzzy heavy drop shadows) */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 3px rgba(23, 59, 77, 0.04);
+  --shadow-md: 0 4px 14px rgba(23, 59, 77, 0.05);
+  --shadow-hover: 0 10px 24px -6px rgba(23, 59, 77, 0.08);
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --transition-normal: 280ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Layout */
+  --max-content-width: 1260px;
+  --header-height: 80px;
+}
+
+/* ==========================================================================
+   CSS RESET & SYSTEM BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-dark);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-warm);
+  overflow-x: hidden;
+  position: relative;
+}
+
+img, picture, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   EDITORIAL TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.h1-hero {
+  font-size: clamp(38px, 5.2vw, 68px);
+  font-weight: 800;
+  line-height: 1.10;
+  letter-spacing: -0.035em;
+}
+
+.h2-section {
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.h3-card {
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.text-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-dark);
+}
+
+.text-eyebrow-orange {
+  color: var(--color-orange);
+}
+
+.text-lead {
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & SECTION PADDING
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 36px);
+  padding-right: clamp(20px, 4vw, 36px);
+}
+
+.section-padding {
+  padding-top: clamp(64px, 8vw, 104px);
+  padding-bottom: clamp(64px, 8vw, 104px);
+}
+
+.section-padding-sm {
+  padding-top: clamp(48px, 6vw, 68px);
+  padding-bottom: clamp(48px, 6vw, 68px);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 5vw, 56px) auto;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-header .text-eyebrow {
+  margin-bottom: var(--space-3);
+}
+
+.section-header .h2-section {
+  margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   PRECISION BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 13px 26px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+  user-select: none;
+  white-space: nowrap;
+  min-height: 48px;
+}
+
+.btn-arrow {
+  transition: transform var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-primary {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  border-color: var(--color-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-navy {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+.btn-navy:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn-navy:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-soft);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 16px 34px;
+  font-size: 15.5px;
+  min-height: 54px;
+}
+
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  min-height: 40px;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS (Purposeful, Refined)
+   ========================================================================== */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
