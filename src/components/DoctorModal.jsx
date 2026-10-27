@@ -183,6 +183,38 @@ export default function DoctorModal({ doctor, onClose, onBookAppointment }) {
             height: 260px;
           }
         }
+
+        @media (max-width: 600px) {
+          .doctor-modal-dialog {
+            padding: 24px 16px 20px 16px !important;
+          }
+          .doctor-modal-portrait-wrap {
+            max-width: 200px;
+            margin: 0 auto 12px auto;
+          }
+          .doctor-modal-img {
+            height: 210px;
+          }
+          .doctor-modal-badge {
+            padding: 8px 12px;
+            font-size: 12px;
+          }
+          .doctor-modal-name {
+            font-size: 22px;
+          }
+          .doctor-modal-bio {
+            font-size: 14.5px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+          }
+          .doctor-highlights-box {
+            padding: 16px 14px;
+            margin-bottom: 20px;
+          }
+          .doctor-modal-actions .btn {
+            width: 100%;
+          }
+        }
       `}</style>
     </div>
   );

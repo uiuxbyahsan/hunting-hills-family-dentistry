@@ -280,6 +280,34 @@ export default function ServiceModal({ service, onClose, onBookAppointment }) {
         .modal-actions .btn-secondary:hover {
           background: rgba(255, 255, 255, 0.15);
         }
+
+        @media (max-width: 600px) {
+          .modal-image-wrap {
+            max-height: 170px;
+            margin-bottom: 18px;
+          }
+          .modal-title {
+            font-size: 22px;
+            margin-bottom: 14px;
+          }
+          .modal-full-desc {
+            font-size: 14.5px;
+            margin-bottom: 20px;
+          }
+          .modal-features-section {
+            padding: 16px 14px;
+            margin-bottom: 20px;
+          }
+          .modal-cta-box {
+            padding: 18px 16px;
+          }
+          .modal-actions {
+            flex-direction: column;
+          }
+          .modal-actions .btn {
+            width: 100%;
+          }
+        }
       `}</style>
     </div>
   );

@@ -283,20 +283,32 @@ export default function Footer({ onOpenAppointment }) {
           color: rgba(255, 255, 255, 0.3);
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1040px) {
           .footer-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
+          .site-footer {
+            padding-top: 48px;
+            padding-bottom: 28px;
+          }
           .footer-grid {
             grid-template-columns: 1fr;
-            gap: 36px;
+            gap: 32px;
+            margin-bottom: 40px;
+          }
+          .footer-link {
+            padding: 4px 0;
+            font-size: 14px;
           }
           .footer-bottom-bar {
             flex-direction: column;
             align-items: flex-start;
+            gap: 12px;
+            padding-top: 20px;
           }
         }
       `}</style>

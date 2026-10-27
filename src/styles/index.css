@@ -97,21 +97,29 @@ html {
   text-rendering: optimizeLegibility;
   background-color: var(--color-bg-warm);
   color: var(--color-text-dark);
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 16.5px;
   line-height: 1.65;
   color: var(--color-text-dark);
   background-color: var(--color-bg-warm);
+  width: 100%;
+  min-width: 320px;
   overflow-x: hidden;
   position: relative;
+  touch-action: manipulation;
 }
 
-img, picture, video, svg {
+img, picture, video, svg, canvas {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 input, button, textarea, select {
@@ -120,6 +128,7 @@ input, button, textarea, select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 ul, ol {
@@ -138,7 +147,7 @@ a {
 }
 
 /* ==========================================================================
-   EDITORIAL TYPOGRAPHY
+   EDITORIAL TYPOGRAPHY (Fluid Responsive Scaling across 320px – 1920px)
    ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -149,21 +158,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .h1-hero {
-  font-size: clamp(38px, 5.2vw, 68px);
+  font-size: clamp(28px, 5.5vw, 68px);
   font-weight: 800;
   line-height: 1.10;
   letter-spacing: -0.035em;
 }
 
 .h2-section {
-  font-size: clamp(32px, 3.8vw, 48px);
+  font-size: clamp(24px, 3.6vw, 48px);
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -0.03em;
 }
 
 .h3-card {
-  font-size: clamp(20px, 2vw, 24px);
+  font-size: clamp(18px, 2vw, 24px);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
@@ -174,9 +183,9 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: var(--space-2);
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 1.2vw, 12px);
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-teal-dark);
 }
@@ -186,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-lead {
-  font-size: clamp(17px, 1.25vw, 19px);
+  font-size: clamp(15.5px, 1.25vw, 19px);
   line-height: 1.65;
   color: var(--color-text-muted);
 }
@@ -199,24 +208,24 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--max-content-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(20px, 4vw, 36px);
-  padding-right: clamp(20px, 4vw, 36px);
+  padding-left: clamp(16px, 4vw, 36px);
+  padding-right: clamp(16px, 4vw, 36px);
 }
 
 .section-padding {
-  padding-top: clamp(64px, 8vw, 104px);
-  padding-bottom: clamp(64px, 8vw, 104px);
+  padding-top: clamp(48px, 7vw, 104px);
+  padding-bottom: clamp(48px, 7vw, 104px);
 }
 
 .section-padding-sm {
-  padding-top: clamp(48px, 6vw, 68px);
-  padding-bottom: clamp(48px, 6vw, 68px);
+  padding-top: clamp(36px, 5vw, 68px);
+  padding-bottom: clamp(36px, 5vw, 68px);
 }
 
 .section-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto clamp(36px, 5vw, 56px) auto;
+  margin: 0 auto clamp(28px, 4vw, 56px) auto;
 }
 
 .section-header.text-left {
@@ -233,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   PRECISION BUTTONS
+   PRECISION BUTTONS (Touch Target Optimized)
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -363,3 +372,139 @@ h1, h2, h3, h4, h5, h6 {
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE MODAL SYSTEM (Bulletproof on 320px Mobile & Desktop)
+   ========================================================================== */
+.modal-backdrop,
+.appt-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 38, 51, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 3vw, 24px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: modalFadeIn 220ms ease forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-dialog,
+.appt-dialog {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 680px;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  padding: clamp(24px, 4.5vw, 44px);
+  box-shadow: 0 20px 48px -12px rgba(15, 38, 51, 0.35);
+  border: 1px solid var(--color-border);
+  margin: auto;
+  animation: modalSlideUp 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close-btn,
+.appt-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-warm);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover,
+.appt-close-btn:hover {
+  background-color: var(--color-teal-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-teal);
+  transform: rotate(90deg);
+}
+
+/* Modal Responsive Media Queries */
+@media (max-width: 640px) {
+  .modal-backdrop,
+  .appt-backdrop {
+    padding: 8px;
+    align-items: flex-end;
+  }
+  .modal-dialog,
+  .appt-dialog {
+    max-height: 94vh;
+    padding: 24px 16px 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .modal-close-btn,
+  .appt-close-btn {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ==========================================================================
+   TABLE & VIEWPORT RESPONSIVE UTILITIES
+   ========================================================================== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-4);
+}
+
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 99px;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .w-full-mobile {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+

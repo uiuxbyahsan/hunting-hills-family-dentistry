@@ -147,17 +147,36 @@ export default function FinalCTA({ onOpenAppointment }) {
           font-weight: 500;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
+          .final-cta-card {
+            padding: 36px 18px;
+            border-radius: var(--radius-lg);
+          }
+          .cta-headline {
+            font-size: clamp(26px, 6vw, 36px);
+            margin-bottom: 14px;
+          }
+          .cta-supporting {
+            font-size: 15px;
+            margin-bottom: 24px;
+          }
           .cta-actions-group {
             flex-direction: column;
             width: 100%;
+            gap: 12px;
+            margin-bottom: 24px;
           }
           .cta-main-btn, .cta-phone-btn {
             width: 100%;
           }
           .cta-trust-perks {
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
+            padding-top: 18px;
+          }
+          .perk-item {
+            font-size: 13.5px;
+            justify-content: center;
           }
         }
       `}</style>

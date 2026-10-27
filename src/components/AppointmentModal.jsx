@@ -633,13 +633,13 @@ export default function AppointmentModal({ isOpen, onClose, initialReason = '' }
         }
 
         .field-input {
-          height: 52px;
+          height: 50px;
           padding: 0 16px;
           border-radius: var(--radius-sm);
           border: 1px solid rgba(23, 59, 77, 0.18);
           background: #FFFFFF;
           color: var(--color-text-dark);
-          font-size: 15px;
+          font-size: 16px; /* Prevents auto-zoom on iOS */
           transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
           outline: none;
         }
@@ -664,6 +664,7 @@ export default function AppointmentModal({ isOpen, onClose, initialReason = '' }
           height: auto;
           min-height: 80px;
           padding: 12px 16px;
+          font-size: 16px;
           resize: vertical;
         }
 
@@ -851,17 +852,58 @@ export default function AppointmentModal({ isOpen, onClose, initialReason = '' }
           flex-wrap: wrap;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
+          .appt-backdrop {
+            padding: 8px;
+            align-items: flex-end;
+          }
+          .appt-dialog {
+            padding: 24px 16px 20px 16px;
+            border-radius: var(--radius-lg);
+            max-height: 94vh;
+          }
+          .appt-close-btn {
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+          }
+          .appt-main-title {
+            font-size: 22px;
+            margin-bottom: 14px;
+          }
+          .appt-progress-container {
+            padding: 10px 12px;
+            margin-bottom: 14px;
+          }
+          .step-connector {
+            margin: 0 8px;
+          }
+          .step-text {
+            font-size: 11.5px;
+          }
           .form-row-2, .patient-type-selector {
             grid-template-columns: 1fr;
+            gap: 12px;
+          }
+          .form-actions-split {
+            gap: 8px;
           }
           .appt-call-alternative {
             flex-direction: column;
             align-items: flex-start;
+            gap: 8px;
           }
           .call-now-pill {
             width: 100%;
             justify-content: center;
+          }
+          .success-title {
+            font-size: 24px;
+          }
+          .success-card {
+            padding: 16px;
+            margin-bottom: 20px;
           }
           .success-buttons-row {
             flex-direction: column;

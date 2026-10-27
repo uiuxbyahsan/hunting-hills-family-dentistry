@@ -460,11 +460,42 @@ export default function ServicesSection({ onBookAppointment }) {
         @media (max-width: 720px) {
           .services-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 36px;
+          }
+          .service-card-media {
+            height: 180px;
+          }
+          .service-card-content {
+            padding: 20px 18px 18px 18px;
+          }
+          .service-card-title {
+            font-size: 18.5px;
+          }
+          .service-highlights-list {
+            padding: 12px 14px;
+            gap: 8px;
+            margin-bottom: 18px;
           }
           .services-bottom-callout {
             flex-direction: column;
             align-items: flex-start;
-            padding: 24px;
+            padding: 22px 18px;
+            gap: 20px;
+          }
+          .callout-left {
+            gap: 14px;
+            align-items: flex-start;
+          }
+          .callout-icon-circle {
+            width: 46px;
+            height: 46px;
+          }
+          .callout-text h4 {
+            font-size: 18px;
+          }
+          .callout-text p {
+            font-size: 14px;
           }
           .services-bottom-callout .btn {
             width: 100%;

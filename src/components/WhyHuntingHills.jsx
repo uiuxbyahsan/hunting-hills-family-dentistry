@@ -289,9 +289,60 @@ export default function WhyHuntingHills({ onOpenAppointment }) {
         @media (max-width: 960px) {
           .why-content-grid {
             grid-template-columns: 1fr;
+            gap: 40px;
           }
           .why-primary-image {
-            height: 380px;
+            height: 360px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .why-primary-image {
+            height: 260px;
+          }
+          .why-floating-badge {
+            bottom: 12px;
+            left: 12px;
+            right: 12px;
+            padding: 10px 14px;
+            gap: 12px;
+          }
+          .badge-stat {
+            font-size: 26px;
+          }
+          .badge-text strong {
+            font-size: 13px;
+          }
+          .badge-text span {
+            font-size: 11px;
+          }
+          .pillars-list {
+            gap: 20px;
+            margin-bottom: 28px;
+          }
+          .pillar-row {
+            gap: 12px;
+          }
+          .pillar-icon-box {
+            width: 38px;
+            height: 38px;
+          }
+          .pillar-title {
+            font-size: 17px;
+          }
+          .pillar-desc {
+            font-size: 14px;
+          }
+          .why-cta-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+          }
+          .why-cta-row .btn {
+            width: 100%;
+          }
+          .quick-guarantee {
+            justify-content: center;
           }
         }
       `}</style>

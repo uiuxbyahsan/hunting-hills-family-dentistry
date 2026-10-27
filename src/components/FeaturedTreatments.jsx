@@ -293,6 +293,54 @@ export default function FeaturedTreatments({ onOpenAppointment }) {
             max-height: 240px;
           }
         }
+
+        @media (max-width: 640px) {
+          .treatments-stack {
+            gap: 56px;
+          }
+          .treatment-card-canvas {
+            min-height: 220px;
+            padding: 16px;
+          }
+          .treatment-img {
+            max-height: 190px;
+          }
+          .treatment-badge-tag {
+            top: 12px;
+            left: 12px;
+            font-size: 11px;
+            padding: 4px 10px;
+          }
+          .treatment-headline {
+            font-size: 22px;
+            margin-bottom: 12px;
+          }
+          .treatment-lead {
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
+          .treatment-body {
+            font-size: 14px;
+            margin-bottom: 18px;
+          }
+          .treatment-benefits-list {
+            padding: 14px;
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+          .benefit-row {
+            font-size: 13.5px;
+            gap: 10px;
+          }
+          .treatment-actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+          }
+          .treatment-actions .btn {
+            width: 100%;
+          }
+        }
       `}</style>
     </section>
   );

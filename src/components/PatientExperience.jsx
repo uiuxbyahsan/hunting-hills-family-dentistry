@@ -191,7 +191,7 @@ export default function PatientExperience({ onOpenAppointment }) {
         @media (max-width: 960px) {
           .process-steps-grid {
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
           }
           .process-timeline-line {
             display: none;
@@ -202,6 +202,46 @@ export default function PatientExperience({ onOpenAppointment }) {
           }
           .comfort-banner .btn {
             width: 100%;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .process-track-wrapper {
+            margin-bottom: 36px;
+          }
+          .process-card {
+            padding: 20px 18px;
+          }
+          .process-badge-header {
+            margin-bottom: 16px;
+          }
+          .process-number {
+            font-size: 26px;
+          }
+          .process-icon-circle {
+            width: 44px;
+            height: 44px;
+          }
+          .process-title {
+            font-size: 18.5px;
+            margin-bottom: 8px;
+          }
+          .process-desc {
+            font-size: 14px;
+          }
+          .comfort-banner {
+            padding: 20px 16px;
+            gap: 18px;
+          }
+          .comfort-left {
+            gap: 14px;
+            align-items: flex-start;
+          }
+          .comfort-left h4 {
+            font-size: 17px;
+          }
+          .comfort-left p {
+            font-size: 13.5px;
           }
         }
       `}</style>

@@ -18,6 +18,18 @@ export default function Navbar({ onOpenAppointment }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock background scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { label: 'Services', href: '#services' },
     { label: 'Gallery', href: '#gallery' },
@@ -93,9 +105,19 @@ export default function Navbar({ onOpenAppointment }) {
               className="btn btn-primary nav-cta-btn"
               id="nav-book-appointment-btn"
             >
-              <Calendar size={16} />
+              <Calendar size={15} />
               <span>Book Online</span>
             </button>
+
+            {/* Quick 1-Tap Call Icon for Mobile */}
+            <a
+              href={`tel:${PRACTICE_INFO.phoneRaw}`}
+              className="mobile-quick-call-btn"
+              title={`Call ${PRACTICE_INFO.phone}`}
+              aria-label={`Call ${PRACTICE_INFO.phone}`}
+            >
+              <Phone size={18} />
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -334,32 +356,66 @@ export default function Navbar({ onOpenAppointment }) {
           white-space: nowrap;
         }
 
+        .mobile-quick-call-btn {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: var(--color-bg-soft);
+          color: var(--color-primary);
+          border: 1px solid var(--color-border);
+          transition: all var(--transition-fast);
+        }
+        .mobile-quick-call-btn:hover {
+          background-color: var(--color-teal);
+          color: #FFFFFF;
+          border-color: var(--color-teal);
+        }
+
         .mobile-toggle-btn {
           display: none;
+          align-items: center;
+          justify-content: center;
           background: none;
-          border: none;
+          border: 1px solid var(--color-border);
           color: var(--color-primary);
           cursor: pointer;
-          padding: 8px;
+          width: 42px;
+          height: 42px;
           border-radius: var(--radius-sm);
+          transition: background-color var(--transition-fast);
+        }
+        .mobile-toggle-btn:hover {
+          background-color: var(--color-bg-soft);
         }
 
         /* Mobile Drawer */
         .mobile-drawer {
           position: fixed;
-          top: 100%;
+          top: 76px;
           left: 0;
+          right: 0;
+          bottom: 0;
           width: 100%;
           height: calc(100vh - 76px);
+          height: calc(100dvh - 76px);
           background-color: #FFFFFF;
-          transform: translateY(-120%);
+          transform: translateY(-100%);
           opacity: 0;
           pointer-events: none;
-          transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 250ms ease;
+          transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 220ms ease;
           overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
           z-index: 99;
-          box-shadow: var(--shadow-md);
+          box-shadow: 0 16px 32px rgba(23, 59, 77, 0.15);
+        }
+        .site-header-scrolled .mobile-drawer {
+          top: 68px;
+          height: calc(100vh - 68px);
+          height: calc(100dvh - 68px);
         }
         .mobile-drawer-open {
           transform: translateY(0);
@@ -367,10 +423,12 @@ export default function Navbar({ onOpenAppointment }) {
           pointer-events: auto;
         }
         .mobile-drawer-content {
-          padding: 24px 20px 48px 20px;
+          padding: 20px 20px 48px 20px;
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 20px;
+          max-width: 520px;
+          margin: 0 auto;
         }
         .mobile-links {
           display: flex;
@@ -381,13 +439,17 @@ export default function Navbar({ onOpenAppointment }) {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 16px 4px;
+          padding: 16px 8px;
+          min-height: 48px;
           border-bottom: 1px solid var(--color-border);
           font-family: var(--font-heading);
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 600;
           color: var(--color-primary);
           text-decoration: none;
+        }
+        .mobile-nav-item:active {
+          background-color: var(--color-bg-soft);
         }
         .mobile-nav-item .chevron {
           color: var(--color-text-light);
@@ -402,13 +464,13 @@ export default function Navbar({ onOpenAppointment }) {
         }
         .phone-call-btn {
           background-color: var(--color-bg-soft);
-          border-color: rgba(23, 59, 77, 0.1);
+          border-color: rgba(23, 59, 77, 0.12);
         }
         .mobile-hours-snippet {
           background: var(--color-bg-warm);
           padding: 16px;
           border-radius: var(--radius-md);
-          font-size: 14px;
+          font-size: 13.5px;
           color: var(--color-text-muted);
           line-height: 1.5;
         }
@@ -416,8 +478,8 @@ export default function Navbar({ onOpenAppointment }) {
           color: var(--color-primary);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 960px) {
+        /* Responsive Breakpoints across Desktop, Tablet & Mobile */
+        @media (max-width: 1040px) {
           .desktop-nav {
             display: none;
           }
@@ -427,16 +489,36 @@ export default function Navbar({ onOpenAppointment }) {
           .header-phone {
             display: none;
           }
+          .mobile-quick-call-btn {
+            display: inline-flex;
+          }
         }
-        @media (max-width: 580px) {
-          .nav-cta-btn {
-            display: none;
+
+        @media (max-width: 640px) {
+          .mobile-drawer {
+            top: 64px;
+            height: calc(100vh - 64px);
+            height: calc(100dvh - 64px);
+          }
+          .site-header-scrolled .mobile-drawer {
+            top: 60px;
+            height: calc(100vh - 60px);
+            height: calc(100dvh - 60px);
+          }
+          .header-container {
+            height: 64px;
+          }
+          .site-header-scrolled .header-container {
+            height: 60px;
           }
           .brand-logo {
             height: 36px;
           }
-          .header-container {
-            height: 64px;
+          .nav-cta-btn {
+            display: none;
+          }
+          .header-actions {
+            gap: 10px;
           }
         }
       `}</style>

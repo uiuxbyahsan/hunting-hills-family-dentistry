@@ -280,6 +280,44 @@ export default function TestimonialsSection() {
             display: none;
           }
         }
+
+        @media (max-width: 640px) {
+          .editorial-testimonial-card {
+            padding: 24px 18px;
+            margin-bottom: 24px;
+          }
+          .quote-watermark {
+            opacity: 0.4;
+            top: 10px;
+            right: 10px;
+          }
+          .stars-row {
+            gap: 4px;
+            margin-bottom: 18px;
+          }
+          .verified-patient-tag {
+            margin-left: 0;
+            margin-top: 6px;
+            font-size: 11.5px;
+            padding: 3px 10px;
+            display: inline-flex;
+          }
+          .editorial-quote {
+            font-size: 17.5px;
+            line-height: 1.5;
+            margin-bottom: 22px;
+          }
+          .testimonial-footer-row {
+            padding-top: 18px;
+            gap: 16px;
+          }
+          .author-name {
+            font-size: 17px;
+          }
+          .author-role {
+            font-size: 13px;
+          }
+        }
       `}</style>
     </section>
   );

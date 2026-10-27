@@ -281,6 +281,7 @@ export default function LocationSection() {
           display: flex;
           align-items: center;
           gap: 12px;
+          min-width: 0;
           transition: background-color var(--transition-fast), border-color var(--transition-fast);
         }
 
@@ -293,6 +294,8 @@ export default function LocationSection() {
           display: flex;
           flex-direction: column;
           line-height: 1.25;
+          min-width: 0;
+          overflow: hidden;
         }
 
         .contact-link-text span {
@@ -305,6 +308,9 @@ export default function LocationSection() {
         .contact-link-text strong {
           font-size: 13.5px;
           color: var(--color-primary);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
 
         .map-embed-wrapper {
@@ -369,21 +375,23 @@ export default function LocationSection() {
           color: var(--color-primary);
         }
 
-        /* Hours Table */
+        /* Hours Table (Responsive Tabular Layout) */
         .hours-table {
           display: flex;
           flex-direction: column;
           border-top: 1px solid var(--color-border-subtle);
           margin-bottom: 24px;
+          width: 100%;
         }
 
         .hours-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 13px 4px;
+          padding: 12px 4px;
           border-bottom: 1px solid var(--color-border-subtle);
-          font-size: 15px;
+          font-size: 14.5px;
+          gap: 12px;
         }
 
         .hours-row:last-child {
@@ -399,11 +407,13 @@ export default function LocationSection() {
         .time-open {
           font-weight: 600;
           color: var(--color-text-dark);
+          text-align: right;
         }
 
         .time-closed {
           font-weight: 600;
           color: #A0B5BD;
+          text-align: right;
         }
 
         .hours-closed-row .day-label {
@@ -424,12 +434,54 @@ export default function LocationSection() {
           color: var(--color-primary);
         }
 
+        /* Responsive Breakpoints across Viewports */
+        @media (max-width: 1200px) {
+          .contact-links-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
         @media (max-width: 960px) {
           .location-grid {
             grid-template-columns: 1fr;
+            gap: 28px;
           }
-          .contact-links-grid {
-            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 640px) {
+          .location-card {
+            padding: 20px 16px;
+          }
+          .location-card-header {
+            gap: 12px;
+            margin-bottom: 18px;
+          }
+          .address-icon-wrap {
+            width: 44px;
+            height: 44px;
+          }
+          .location-title {
+            font-size: 20px;
+          }
+          .address-line {
+            font-size: 16px;
+          }
+          .map-embed-wrapper iframe {
+            height: 200px;
+          }
+          .live-status-badge {
+            padding: 10px 14px;
+            margin-bottom: 18px;
+          }
+          .hours-row {
+            padding: 10px 2px;
+            font-size: 13.5px;
+          }
+          .day-label {
+            font-size: 13.5px;
+          }
+          .time-open, .time-closed {
+            font-size: 13px;
           }
         }
       `}</style>

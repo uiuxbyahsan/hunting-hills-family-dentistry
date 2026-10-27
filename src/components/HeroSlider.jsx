@@ -189,11 +189,12 @@ export default function HeroSlider({ onOpenAppointment }) {
       <style>{`
         .hero-slider-section {
           position: relative;
-          height: clamp(680px, 86vh, 920px);
+          min-height: clamp(640px, 86vh, 920px);
           width: 100%;
           overflow: hidden;
           background-color: var(--color-primary-dark);
           color: #FFFFFF;
+          touch-action: pan-y;
         }
 
         .hero-slide {
@@ -259,6 +260,8 @@ export default function HeroSlider({ onOpenAppointment }) {
           height: 100%;
           display: flex;
           align-items: center;
+          padding-top: 40px;
+          padding-bottom: 60px;
         }
 
         .hero-content-box {
@@ -306,7 +309,7 @@ export default function HeroSlider({ onOpenAppointment }) {
         }
 
         .hero-description {
-          font-size: clamp(17px, 1.3vw, 21px);
+          font-size: clamp(15.5px, 1.3vw, 21px);
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.90);
           margin-bottom: 36px;
@@ -392,17 +395,17 @@ export default function HeroSlider({ onOpenAppointment }) {
         /* Indicators */
         .slider-indicators {
           position: absolute;
-          bottom: 32px;
+          bottom: 28px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
-          gap: 12px;
+          gap: 10px;
           z-index: 10;
         }
 
         .indicator-dot {
-          width: 44px;
-          height: 5px;
+          width: 40px;
+          height: 6px;
           border-radius: 3px;
           background: rgba(255, 255, 255, 0.30);
           border: none;
@@ -415,22 +418,22 @@ export default function HeroSlider({ onOpenAppointment }) {
 
         .indicator-dot-active {
           background: var(--color-orange);
-          width: 64px;
+          width: 58px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .slider-arrow {
             display: none;
           }
           .hero-slider-section {
-            height: clamp(620px, 80vh, 760px);
+            min-height: clamp(580px, 82vh, 720px);
           }
           .hero-overlay-dark {
             background: linear-gradient(
               180deg,
-              rgba(15, 38, 51, 0.85) 0%,
-              rgba(23, 59, 77, 0.85) 60%,
-              rgba(15, 38, 51, 0.95) 100%
+              rgba(15, 38, 51, 0.88) 0%,
+              rgba(23, 59, 77, 0.88) 60%,
+              rgba(15, 38, 51, 0.96) 100%
             );
           }
           .hero-content-box {
@@ -438,26 +441,57 @@ export default function HeroSlider({ onOpenAppointment }) {
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           .hero-slider-section {
-            height: clamp(580px, 85vh, 660px);
+            min-height: clamp(520px, 88vh, 640px);
+          }
+          .hero-container {
+            padding-top: 24px;
+            padding-bottom: 56px;
+          }
+          .hero-eyebrow {
+            font-size: 11px;
+            padding: 4px 10px;
+            margin-bottom: 14px;
+            gap: 6px;
+          }
+          .hero-title {
+            margin-bottom: 14px;
+          }
+          .hero-description {
+            font-size: 15px;
+            line-height: 1.55;
+            margin-bottom: 24px;
           }
           .hero-cta-group {
             flex-direction: column;
             align-items: stretch;
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 24px;
           }
           .hero-btn-primary, .hero-btn-secondary {
             width: 100%;
           }
+          .hero-trust-indicator {
+            padding: 8px 14px;
+            gap: 10px;
+          }
+          .trust-label {
+            font-size: 12px;
+          }
+          .trust-sub {
+            font-size: 11px;
+          }
           .slider-indicators {
-            bottom: 20px;
+            bottom: 16px;
+            gap: 6px;
           }
           .indicator-dot {
-            width: 28px;
+            width: 24px;
+            height: 5px;
           }
           .indicator-dot-active {
-            width: 44px;
+            width: 38px;
           }
         }
       `}</style>

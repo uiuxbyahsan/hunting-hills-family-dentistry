@@ -292,9 +292,50 @@ export default function PatientResources({ onOpenAppointment }) {
           padding-top: 16px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .resources-cards-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .resource-card {
+            padding: 22px 18px;
+          }
+          .res-icon-wrap {
+            width: 44px;
+            height: 44px;
+            margin-bottom: 14px;
+          }
+          .res-title {
+            font-size: 18px;
+          }
+          .res-desc {
+            font-size: 14px;
+            margin-bottom: 18px;
+          }
+          .faq-wrapper {
+            padding: 22px 16px;
+          }
+          .faq-header-row {
+            margin-bottom: 20px;
+            gap: 14px;
+          }
+          .faq-main-title {
+            font-size: 22px;
+          }
+          .faq-trigger {
+            padding: 16px 14px;
+            min-height: 50px;
+          }
+          .faq-question {
+            font-size: 15px;
+          }
+          .faq-answer-pane {
+            padding: 0 14px 16px 14px;
+            font-size: 14px;
           }
         }
       `}</style>

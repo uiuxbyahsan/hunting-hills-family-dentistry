@@ -627,26 +627,77 @@ export default function SmileGallerySection({ onBookAppointment }) {
         @media (max-width: 1080px) {
           .gallery-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
           }
         }
 
         @media (max-width: 720px) {
           .gallery-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 36px;
+          }
+          .gallery-filters-row {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 10px;
+            margin-bottom: 32px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+          }
+          .gallery-filters-row::-webkit-scrollbar {
+            display: none;
+          }
+          .filter-pill-btn {
+            white-space: nowrap;
+            padding: 8px 16px;
+            font-size: 13px;
+            flex-shrink: 0;
+          }
+          .gallery-card-media {
+            height: 175px;
+          }
+          .gallery-card-body {
+            padding: 20px 18px 18px 18px;
+          }
+          .gallery-card-title {
+            font-size: 17px;
           }
           .gallery-bottom-banner {
             flex-direction: column;
             align-items: flex-start;
-            padding: 24px;
+            padding: 22px 18px;
+            gap: 20px;
+          }
+          .gallery-banner-left {
+            gap: 14px;
+            align-items: flex-start;
+          }
+          .gallery-banner-left h4 {
+            font-size: 18px;
+          }
+          .gallery-banner-left p {
+            font-size: 14px;
           }
           .gallery-bottom-banner .btn {
             width: 100%;
           }
           .modal-comparison-grid {
             grid-template-columns: 1fr;
+            gap: 12px;
           }
           .comparison-img-box {
-            height: 200px;
+            height: 190px;
+          }
+          .gallery-modal-narrative {
+            padding: 16px 14px;
+          }
+          .modal-cta-box {
+            padding: 18px 16px;
+          }
+          .modal-cta-box .btn {
+            width: 100%;
           }
         }
       `}</style>

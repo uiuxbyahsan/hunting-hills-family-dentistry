@@ -251,28 +251,69 @@ export default function AwardsSection() {
           color: var(--color-primary);
         }
 
-        @media (max-width: 1080px) {
+        @media (max-width: 1100px) {
           .awards-grid {
             grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
           }
+        }
+
+        @media (max-width: 900px) {
+          .cert-logos-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+          }
+          .certifications-banner {
+            padding: 28px 24px;
+          }
+        }
+
+        @media (max-width: 680px) {
           .cert-logos-grid {
             grid-template-columns: 1fr;
+            gap: 14px;
+          }
+          .certifications-banner {
+            padding: 20px 16px;
+          }
+          .cert-intro {
+            margin-bottom: 24px;
           }
         }
 
         @media (max-width: 600px) {
           .awards-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 10px;
+            margin-bottom: 36px;
           }
           .award-card {
-            padding: 14px 10px;
+            padding: 14px 8px;
           }
           .award-badge-wrap {
             height: 75px;
+            margin-bottom: 8px;
           }
           .award-badge-img {
-            max-height: 70px;
+            max-height: 65px;
+          }
+          .award-tier {
+            font-size: 13px;
+          }
+          .award-title {
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .awards-grid {
+            grid-template-columns: 1fr;
+          }
+          .award-badge-wrap {
+            height: 85px;
+          }
+          .award-badge-img {
+            max-height: 75px;
           }
         }
       `}</style>

@@ -158,18 +158,29 @@ export default function TeamSection({ onBookAppointment }) {
           flex-grow: 1;
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
           .team-grid {
             grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
           }
         }
 
         @media (max-width: 640px) {
           .team-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
           }
           .doctor-media-wrap {
-            height: 260px;
+            height: 250px;
+          }
+          .doctor-card-content {
+            padding: 18px 16px;
+          }
+          .doctor-name {
+            font-size: 18px;
+          }
+          .doctor-summary {
+            font-size: 13.5px;
           }
         }
       `}</style>
